@@ -1,0 +1,14 @@
+package com.banking.util;
+
+import java.util.Random;
+
+public class TestMain {
+
+    public static void main(String[] args) {
+
+        Random r = new Random(System.currentTimeMillis());
+        System.out.println(r.nextInt(100000) * 100000001);
+        
+    }
+
+}

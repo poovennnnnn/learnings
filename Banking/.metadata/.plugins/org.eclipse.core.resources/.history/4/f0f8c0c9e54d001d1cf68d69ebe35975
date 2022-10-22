@@ -1,0 +1,33 @@
+package com.banking.util;
+
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.banking.service.BankAccountService;
+
+
+@Component
+public class BankingUtil {
+    
+    @Autowired
+    private  BankAccountService service;
+    
+    
+    public  Integer getRandomNumber() {
+        
+     
+        int number = 100000 + random_float() * 900000;
+        
+        
+        while(service.existsByActNumber(number)) {
+            number = rnd.nextInt(999999);
+        }
+        
+        
+
+        
+        return number;
+    }
+
+}

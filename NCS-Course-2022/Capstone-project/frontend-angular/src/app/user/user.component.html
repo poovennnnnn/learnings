@@ -1,0 +1,27 @@
+<div class="continer mt-2 p-2">
+  <div class="row">
+    <div class="col-3 col-sm-12 col-md-3 align-middle">
+      <button
+        class="btn btn-outline-secondary mt-2 w-100"
+        [ngClass]="{ active: active == 'view' }"
+        (click)="viewCustomerDetails()"
+        routerLink="account"
+      >
+        View Account Details
+      </button>
+      <button
+        [ngClass]="{ active: active == 'offer' }"
+        class="btn btn-outline-secondary mt-2 w-100"
+        (click)="offers()"
+        routerLink="offer"
+      >
+        View Offers
+      </button>
+    </div>
+    <div class="col-9 col-sm-12 col-md-9 my-sm-3">
+      <div class="tab-content" id="nav-tabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

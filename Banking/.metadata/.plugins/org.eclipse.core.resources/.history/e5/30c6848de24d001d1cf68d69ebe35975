@@ -1,0 +1,89 @@
+package com.banking.service;
+
+import java.util.List;
+
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.banking.dto.UserRequest;
+import com.banking.entity.BankAccount;
+import com.banking.entity.Customer;
+import com.banking.entity.User;
+import com.banking.exception.AccountNotFoundException;
+import com.banking.repo.BankAccountRepo;
+import com.banking.repo.UserRepo;
+import com.banking.util.BankingUtil;
+
+@Service
+public class BankAccountServicImpl  implements BankAccountService{
+    
+    @Autowired
+    private UserRepo userRepo;
+    
+    @Autowired
+    private BankAccountRepo bankRepo;
+ 
+
+    @Override
+    public BankAccount create(User user) throws AccountAlreadyExistsException {
+        
+        
+
+     
+//        User user= new User();
+//        BankAccount account = new BankAccount();
+//        Customer customer = new Customer();
+//        
+//        customer.setFirstName(userRequest.getFirstName());
+//        customer.setLastName(userRequest.getLastName());
+//        customer.setCity(userRequest.getCity());
+//        customer.setPhone(userRequest.getPhone());
+//        
+//        account.setActNumber(util.getRandomNumber());
+//        account.setActBalance(userRequest.getBalance());
+//        account.setActType(userRequest.getActType());
+//        String username = userRequest.getFirstName()+userRequest.getLastName();
+//        user.setUsername(username);
+//        user.setPassword("password");
+//        user.setBankAccount(account);
+//        
+//        BankAccount newAccount = userRepo.save(user).getBankAccount();
+//        
+         
+        return userRepo.save(user).getBankAccount();
+    }
+
+    @Override
+    public BankAccount update(BankAccount account) throws AccountNotFoundException {
+        
+        
+        if(!bankRepo.existsByActNumber(account.getActNumber())) {
+            
+            throw new AccountNotFoundException("Account Not Found")
+         }
+       
+        
+        
+         
+        return bankRepo.save(account);
+    }
+
+    @Override
+    public List<BankAccount> findAll() {
+        return bankRepo.findAll();
+    }
+
+    @Override
+    public BankAccount findById(Integer id) throws AccountNotFoundException {
+        return bankRepo.findById(id).orElseThrow(()-> new AccountNotFoundException("Account not Found ac.no : "+id));
+    }
+
+    @Override
+    public BankAccount findByActNumber(Integer accountNumber) throws AccountNotFoundException {
+        return bankRepo.findByActNumber(accountNumber).orElseThrow(()-> new AccountNotFoundException("Account not Found ac.no : "+accountNumber));
+    }
+
+}

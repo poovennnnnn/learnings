@@ -1,0 +1,17 @@
+package com.banking.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.banking.repo.OffersRepo;
+
+public class OfferServiceImpl implements OfferService {
+    
+    @Autowired
+    private OffersRepo offerRepo;
+
+    @Override
+    public boolean existsByCustomerIdAndOfferName(int id, String customer) {
+        return offerRepo.existsByCustomerIdAndOfferName(id, customer) ;
+    }
+
+}

@@ -1,0 +1,17 @@
+package com.banking.exception;
+
+public class JwtExpiredException extends Exception {
+
+    public JwtExpiredException() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+    public JwtExpiredException(String message, Throwable cause) {
+        super(message, cause);
+        // TODO Auto-generated constructor stub
+    }
+    
+    
+
+}

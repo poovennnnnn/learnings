@@ -1,0 +1,17 @@
+package com.banking.service;
+
+import java.util.List;
+
+import com.banking.entity.BankAccount;
+import com.banking.entity.User;
+
+public interface BankAccountService {
+
+    BankAccount create(User user);
+    BankAccount update();
+    List<BankAccount> findAll();
+    BankAccount findById(Long id);
+    BankAccount findByAccountNumber(Long accountNumber);
+   
+
+}

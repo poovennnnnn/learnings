@@ -1,0 +1,31 @@
+package com.banking.util;
+
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.banking.repo.BankAccountRepo;
+
+
+
+public class BankingUtil {
+    
+    @Autowired
+    private  BankAccountRepo bankRepo;
+    
+    
+    public static Integer getRandomNumber() {
+        
+        BankingUtil util = new BankingUtil();
+        
+        Random rnd = new Random();
+        int number = rnd.nextInt(999999);
+        
+        
+        while()
+
+        
+        return null;
+    }
+
+}

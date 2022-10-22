@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-BackendApiApplication<Banking>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.banking.BackendApiApplication",
+      "projectName": "Banking",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

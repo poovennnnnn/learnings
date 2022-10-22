@@ -1,0 +1,81 @@
+package com.example.jwt;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="usrtab")
+public class User {
+	// one separate table is creatd for this
+	@Id
+	@GeneratedValue
+	private Integer id;
+	private String name;
+	private String username;
+	private String password;
+	
+	
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role" ,
+	joinColumns = @JoinColumn(name ="user_id",referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn(name="role_id",referencedColumnName = "id"))
+	private Set<Role> role;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public User(Integer id, String name, String username, String password, Set<Role> role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Set<Role> getRole() {
+		return role;
+	}
+	public void setRole(Set<Role> role) {
+		this.role = role;
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", role="
+				+ role + "]";
+	}
+
+}

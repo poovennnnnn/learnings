@@ -1,0 +1,17 @@
+package com.banking.repo;
+
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.banking.entity.BankAccount;
+
+
+
+public interface BankAccountRepo extends JpaRepository<BankAccount, Integer> {
+    
+    BankAccount findByAccountNumber(Long accountNumber);
+    boolean existsByAccountNumber(Long accountNumber);
+
+}

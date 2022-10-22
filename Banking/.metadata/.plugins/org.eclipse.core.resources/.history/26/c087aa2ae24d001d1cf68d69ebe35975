@@ -1,0 +1,15 @@
+package com.banking.service;
+
+
+import java.util.Optional;
+
+import com.banking.entity.User;
+
+
+
+
+public interface IUserService {
+
+	public User saveUser(User user);
+	public Optional<User> findByUsername(String username);
+}

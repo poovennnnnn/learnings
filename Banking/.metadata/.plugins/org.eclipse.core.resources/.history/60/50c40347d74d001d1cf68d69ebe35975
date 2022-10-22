@@ -1,0 +1,9 @@
+package com.banking.service;
+
+public class AccountAlreadyExistsException extends Exception {
+    
+    public AccountNotFoundException(String message) {
+        super(message);
+    }
+
+}

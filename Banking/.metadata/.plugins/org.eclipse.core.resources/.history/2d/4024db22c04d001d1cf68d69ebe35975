@@ -1,0 +1,19 @@
+package com.banking.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "customer")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Customer {
+
+}
